@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LGUI, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼───────┤
-     MO(NAVI), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT,          KC_LCTL, KC_N,  KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MO(NAVI),
+     MO(NAVI), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LCTL,          KC_LALT, KC_N,  KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MO(NAVI),
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LGUI,  KC_LSFT,  KC_ENT,									KC_SPC, KC_RSFT, TG(NUM)
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -92,28 +92,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	switch (keycode) {
-		case ADDTRK:
-			if (record->event.pressed) {
-					// when keycode is pressed
-				} else {
-					// when keycode is released
-					//char track_name[10] = "test";
-						switch (keycode) {
-							// pressed again then we need to make the track
-							if (record->event.pressed) {
-							case ADDTRK:
-								SEND_STRING(SS_LGUI("t"));
-								SEND_STRING(SS_LGUI("r"));
-								//SEND_STRING(keycode);
-								//SS_TAP(X_ENTER);
-								return true;
-							}
-						return true;
-				}
-				return false;
-				break;
+//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//	switch (keycode) {
+//		case ADDTRK:
+//			if (record->event.pressed) {
+//					// when keycode is pressed
+//				} else {
+//					// when keycode is released
+//					//char track_name[10] = "test";
+//						switch (keycode) {
+//							// pressed again then we need to make the track
+//							if (record->event.pressed) {
+//							case ADDTRK:
+//								SEND_STRING(SS_LGUI("t"));
+//								SEND_STRING(SS_LGUI("r"));
+//								//SEND_STRING(keycode);
+//								//SS_TAP(X_ENTER);
+//								return true;
+//							}
+//						return true;
+//				}
+//				return false;
+//				break;
 //		
 //		case ADDMIDI:
 //			if (record->event.pressed) {
@@ -135,8 +135,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //				return false;
 //				break;
 //	}
-	return true;
-};
+//	return true;
+//};
 
 //layer_state_t layer_state_set_user(layer_state_t state) {
 //		switch (get_highest_layer(state)) {
@@ -158,41 +158,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //		}
 //	return state;
 //}
-
-//
-//	if(!process_action_delayed_lt(keycode,record)){ return false; }
-//
-//	return true;	
-//};
-
-
-
-//
-//const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-//{
-//	case 100:
-//	if (record->event.pressed) {
-//			if (record->tap.count && !record->tap.interrupted) {
-//					register_code(KC_ENT);
-//			} else {
-//					layer_on(3);
-//			}
-//	} else {
-//			if(record->tap.count && !record->tap.interrupted) {
-//					unregister_code(KC_QUOT);
-//			} else {
-//					layer_off(3);
-//			}
-//	}
-//	break;
-//}
-
-//const uint16_t PROGMEM fn_actions[] = {
-//    [0] = ACTION_LAYER_TAP_KEY(1, KC_SPC)
-//    , [1] = ACTION_LAYER_TAP_KEY(2, KC_ESC) //symbol layer
-//    , [2] = ACTION_LAYER_TAP_KEY(3, KC_N)   //numpad
-//
-// //   [1] = DLT(2, KC_ENT),
-// //   [1] = ACTION_MACRO_TAP(100)
-//};
 
